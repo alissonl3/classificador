@@ -68,6 +68,12 @@ def trataRetorno(comentarios, result):
     return retorno;     
 
 
+@app.route('/status', methods=['GET'])
+def version():
+    content = {'version': '1.0', 'status': 'running'}
+    data = json.dumps(content, ensure_ascii=False);
+    return Response(data, status=200, mimetype='application/json');
+
 
 @app.route('/classificar', methods=['POST'])
 def classificaComentario():
